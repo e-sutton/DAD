@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "celciusInput <- readline(\"Please enter a celcius value:\")\ncelciusNumeric = as.numeric(celciusInput)\nfahrResults = ((9/5)*celciusNumeric)+32\nfahrString = sprintf(\"%.2f\", fahrResults)\nmessage = paste(\"the result is \", fahrString, sep = \" \")\nprint(message)\n\nweight <- as.numeric(readline(\"What is the kg of the bag? \"))\nif (weight > 15){\n  print(\"This bag is over the weight limit of 15kg!\")\n}\nprint(\"Thank you\")\n\nweight\n\nv1 = c(\"Eoin\",\"Sutton\", \"Eoin\")\nv1\nv1[0]\nv1 + 5\nf = factor(v1)\nf\n\ntypeof(v1)\nis.integer(v1)\n\nname = c(\"eoin\", \"john\", \"mark\")\nage = c(31,14,35)\nemployed = c(\"y\",\"n\",\"y\")\nsalary = c(31000,12000,50000)\ndat = data.frame(name,age,employed,salary)\ndat\navgSal = mean(dat$salary)\navgSal\n\nsalutation <- function(name){\n  salutation = paste(\"hello \", name, \" !\", sep = \" \")\n  print(salutation)\n}\n\nsalutation(\"Eoin\")\n\n#write tabular data\nmyfile = file(\"data.txt\", open = \"w\")\nwrite.table(dat,file = myfile, row.names = FALSE)\nclose(myfile)\n\n#read\nmyfile = file(\"data.txt\", open = \"r\")\nmydata = read.table(myfile,header = TRUE)\nclose(myfile)\nmydata\n\n\n#read credit card data xls file\n\nccdata = read.csv(\"default of credit card clients-2.csv\", stringsAsFactors = F)\nccdata = ccdata[-1]\nView(ccdata)\nstr(ccdata)\nccdata$SEX = factor(ccdata$SEX, levels=c(1, 2), labels=c(\"M\", \"F\"))\nccdata\n\n#histogram\npng(\"Histrogram test.png\", width = 5, height = 5, units = \"in\", res = 300)\nhist(salData$TotalPay, breaks = 12, main = \"Histogram test bitch!\", xlab = \"huh?\")\ndev.off()\n\n#barplot\ncounts <- table(salData$Id)\npng(\"barplot test.png\", width = 5, height = 5, units = \"in\", res = 300)\nbarplot(counts, xlab = \"num users\", ylab = \"??\")\ntitle(main=\"Barplot\")\ndev.off()\n\n#intro to R practical exercises\nmyfile = file(\"numbers.txt\", open = \"w\")\nwrite(42, myfile, append = TRUE)\nwrite(21, myfile, sep = \"\\n\")\nwrite(12, myfile, sep = \"\\n\")\nwrite(74, myfile, sep = \"\\n\")\nclose(myfile)\n\nreadInput <- function(filename){\n  myfile2 = file(filename, open = \"r\")\n  vectorOfNumbers = c()\n  mylines = readLines(myfile2)\n  for (i in 1:length(mylines)) {\n    vectorOfNumbers = c(vectorOfNumbers, as.numeric(mylines[i]))\n    #print(mylines[i])\n  }\n  close(myfile2)\n  return(vectorOfNumbers)\n  \n}\n\nreadInput(\"numbers.txt\")\n\n#compute averate\ncalAvg <- function(vectors){\n  return(sum(vectors)/length(vectors))\n}\n\ncalAvg(readInput(\"numbers.txt\"))\n\n#write to output\nwriteOut <- function(filename,num){\n  myfile3 = file(filename, open = \"w\")\n  write(num, myfile3)\n  close(myfile3)\n}\n\nwriteOut(\"testnums.txt\",4)\n\n#random\ndata_rand <- data[order(runif(10000)), ]\nView(data_rand)\n",
+    "created" : 1478716752558.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3563031853",
+    "id" : "97D62CA9",
+    "lastKnownWriteTime" : 1479554152,
+    "last_content_update" : 1479554152017,
+    "path" : "~/Documents/BSHCE/Year 4/DAD/DAD/CA Practice.R",
+    "project_path" : "CA Practice.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

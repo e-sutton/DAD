@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#read in salaries sales csv\nsalData = read.csv(\"salaries.csv\", stringsAsFactors = F)\nView(salData)\n\n#create data frame\nd = data.frame(salData)\n\n#pre processing, change chars in numeric columsn to 0\nd[d$BasePay == \"Not Provided\",]$BasePay = as.numeric(0)\nd[d$OvertimePay == \"Not Provided\",]$OvertimePay = 0\nd[d$OtherPay == \"Not Provided\",]$OtherPay = 0\nd[d$Benefits == \"Not Provided\",]$Benefits = 0\n\n#change to numeric\nd$OvertimePay = as.numeric(as.character(d$OvertimePay))\nd$BasePay = as.numeric(as.character(d$BasePay))\nd$OtherPay = as.numeric(as.character(d$OtherPay))\nd$Benefits = as.numeric(as.character(d$Benefits))\n\n\n#top 10 job titles for pay through 2011-2014\nsort(salData$TotalPayBenefits, decreasing = TRUE)\n\ntop10 = head(salData, 10)\nView(top10)\n\n\n#top 10 titles on ggplot\nggplot(data=top10, aes(JobTitle, TotalPayBenefits)) +\n  geom_violin(fill=\"lightblue\") +\n  geom_boxplot( alpha=.2)\n\n#average % of overtime on total pay bill\nsumTotalPay = sum(d$TotalPayBenefits)\nsumTotalOvertime = sum(d$OvertimePay)\n\npercOvertimeTotal = round((sumTotalOvertime/sumTotalPay) *100,2)\n\n#get data on job titles for fire/police roles\npoliceRoles = salData[(grep(\"POLICE\", toupper(salData$JobTitle))),]\nsheriffRoles = salData[(grep(\"SHERIFF\", toupper(salData$JobTitle))),]\nallPoliceRoles = rbind(policeRoles,sheriffRoles)\n\nfireRoles = salData[grep(\"FIRE\",toupper(salData$JobTitle)),]\n\n",
+    "created" : 1479045577122.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3307956092",
+    "id" : "86E55B1E",
+    "lastKnownWriteTime" : 1480107593,
+    "last_content_update" : 1480107593038,
+    "path" : "~/Documents/BSHCE/Year 4/DAD/DAD/Salaries.R",
+    "project_path" : "Salaries.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 13,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

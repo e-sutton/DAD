@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# Get / set working environment\ngetwd()\nsetwd(dir = \"C:/Users/room1.05/Downloads/Week3/\")\n\n\n# Vector data type\nmyVec = c(\"a\", 2, 3, 5.5)\nclass(myVec)\ntypeof(myVec)\n\n# Convert to numeric\nas.integer(myVec)\nmyVecN = as.numeric(myVec)\nmean(myVecN)  # this gives NA\n?mean         # read help to see if you miss something\nmean(myVecN, na.rm = TRUE)\n\n# Find the function for computing standard dev \n??\"standard deviation\"\nsd(myVecN, na.rm = TRUE)\n\n\n# List data type\nname = c(\"Jon\", \"Ifa\", \"Amy\")\nage = c(18, 24, 21)\ngender = c(\"M\", F, \"M\") # Forgot \"\", introduced wrong data\ngender = c(\"M\", \"F\", \"M\")\nmark = c(85, 95, 70)\nmyList = list(name, age, gender, mark)\n\nmyList        # Will not display if you do source the script (Ctrl+Shift+S)\nprint(myList) # !!! Get the habit to use print \n\n# Access elements of list\nprint(myList[2])         # object (as list)\nprint(mean(myList[2]))   # warning --> NA\nprint(myList[[2]])       # object (as vector)\nprint(mean(myList[[2]])) # OK\nprint(myList[[2]][2])    # element of object\ntypeof(myList[[1]])\ntypeof(myList[[2]])\n\n\n# Factor data type\nnameF = as.factor(gender)\nprint(nameF)\nlevels(nameF)\nlabels(nameF)\nc(nameF)          # Wrong: creates vector with labels\nas.vector(nameF)  # OK\n\n\n# Data.frame\nmyDat = data.frame(name, age, gender, mark)\nprint(myDat)\nclass(myDat)\ntypeof(myDat)\n\n# Convert data.frame to matrix\nmyDatM = as.matrix(myDat)\nprint(myDatM)\nclass(myDatM)\ntypeof(myDatM)\n\n# Access data\nnames(myDatM)   # does not work for matrix\nnames(myDat)\nmyDat$name      # column\nmyDat[,1]\nmyDat[1,]       # row\nmyDat$name[2]   # cell\nmyDat[1,2]\n\nlength(myDat)       # number variables / attributes\nlength(myDat$name)  # number observations / instances\n\nsummary(myDat)      # basic stats of each column\n\n# subset the data\nmyDat[1,2]          # Select first 2 columns\n# Select desired colums\nsubset(x = myDat, select = c(1,3))\nsubset(x = myDat, select = c(\"name\", \"mark\")) # Preffered approach!!!\n\n# Select males\nsubset(x = myDat, subset = (myDat$gender == \"M\") )\n\n# View existing R datasets\nlibrary(help = \"datasets\")\nmtc = mtcars    # load dataset into environment\n# More complex subset\nmtcSet = subset(x = mtc, subset = (mtc$mpg > 20 & mtc$cyl == 4), select = c(\"mpg\", \"cyl\", \"hp\"))\nsummary(mtcSet)\n\n\n\n## Input/Output\nmyFile = file(\"mydata.txt\", open = \"w\")\nwrite(\"test\", myFile, append = TRUE)\nfor(i in length(myDat$name)){\n  writeLines(text = paste(myDat[,i]), con = myFile, sep = \"\\n\")\n}\nclose(myFile)\n\n\n# Output tabular data\nwrite.table(x  = myDat, file = \"mydata_tab.txt\")\nwrite.csv(x = myDatM, file = \"mydata.csv\")\nwrite.csv(x = myDatM, file = \"mydata.csv\", row.names = FALSE)\n\nmyDatRead = read.csv(file = \"mydata.csv\", header = TRUE)\n\n\n# Plot\npng(filename = \"mpg_hist.png\", width = 3, height = 3, units = \"in\", res = 300)\n  hist(x = mtc$mpg, main = \"Histogram of MPG\", xlab = \"MPG\", col = \"blue\")\ndev.off()\n",
+    "created" : 1479506370166.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3511536527",
+    "id" : "EB654D76",
+    "lastKnownWriteTime" : 1475924897,
+    "last_content_update" : 1475924897,
+    "path" : "~/Documents/BSHCE/Year 4/DAD/DAD/Inclass_Demo_Code.R",
+    "project_path" : "Inclass_Demo_Code.R",
+    "properties" : {
+    },
+    "relative_order" : 15,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

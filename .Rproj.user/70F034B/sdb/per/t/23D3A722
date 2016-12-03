@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "install.packages(c(\"e1071\", \"C50\", \"ggplot2\", \"hexbin\",\"descr\", \"caret\", \"e1071\"))\nlibrary(e1071)\nlibrary(hexbin)\nlibrary(ggplot2)\nlibrary(caret)\nlibrary(descr)\nlibrary(C50)\n\n#setwd(\"C:\\Users\\amoldovan\\Desktop\")\n\n# First remove first row (i.e., X1, X2 etc.) and export the data as .csv from Excel\ndata <- read.csv(\"default of credit card clients-2.csv\", stringsAsFactors=F)\ndata <- data[-1]\nstr(data)\nView(data)\n\ndata$SEX <- factor(data$SEX, levels=c(1, 2), labels=c(\"M\", \"F\"))\n\ntable(data$EDUCATION, useNA='ifany')\ntable(data$MARRIAGE, useNA='ifany')\ndata$EDUCATION <- factor(data$EDUCATION, levels=c(0, 1, 2, 3, 4, 5, 6), labels=c(NA, \"GS\", \"UNI\", \"HS\", \"O1\", \"O2\", \"O3\"))\ndata$MARRIAGE <- factor(data$MARRIAGE, levels=c(0, 1, 2, 3), labels=c(NA, \"M\", \"S\", \"O\"))\ndata$default.payment.next.month <- factor(data$default.payment.next.month, levels=c(0, 1), labels=c(\"N\", \"Y\"))\n\n\nstr(data)\nsummary(data)\n\n\n# Descriptive statistics and plots\nmean(data$LIMIT_BAL)\nsummary(data$LIMIT_BAL)\nmedian(data$LIMIT_BAL)\nsd(data$LIMIT_BAL)\nIQR(data$LIMIT_BAL)\nmad(data$LIMIT_BAL)\nboxplot(data$LIMIT_BAL)\nhist(data$LIMIT_BAL, freq=F)\nlines(density(data$LIMIT_BAL), lwd=3, col=\"blue\")\n\nggplot(data, aes(x=LIMIT_BAL, y=AGE)) + stat_binhex(colour=\"white\") +\n  theme_bw() + scale_fill_gradient(low=\"white\", high=\"blue\") +\n  labs(x=\"Limit Balance\", y=\"Age\")\n\nggplot(data, aes(x=LIMIT_BAL, y=AGE)) + stat_binhex(colour=\"white\") +\n  theme_bw() + scale_fill_gradient(low=\"white\", high=\"blue\") +\n  labs(x=\"Limit Balance\", y=\"Age\") +\n  facet_wrap(\"EDUCATION\")\n\nCrossTable(data$EDUCATION, data$default.payment.next.month, prop.c=F, prop.t=F, prop.chisq=F)\n\nboxplot(LIMIT_BAL ~ EDUCATION, data=data)\nggplot(data=data, aes(EDUCATION, LIMIT_BAL)) +\n  geom_violin(fill=\"lightblue\") +\n  geom_boxplot( alpha=.2)\n\n\n# Randomise data\ndata_rand <- data[order(runif(10000)), ]\nsummary(data$LIMIT_BAL)\nsummary(data_rand$LIMIT_BAL)\n\n# Create test and train subsets\ntrain <- data_rand[1:9000, ]\ntest <- data_rand[9001:10000, ]\nprop.table(table(train$default.payment.next.month))\nprop.table(table(test$default.payment.next.month))\n\n# Train the classifier (i.e., decusion tree)\ncredit_model <- C5.0(train[-24], train$default.payment.next.month)\ncredit_model\n\nsummary(credit_model)\n\n#Evaluate the model\ncredit_pred <- predict(credit_model, test)\n\nCrossTable(test$default.payment.next.month, credit_pred,prop.chisq = FALSE, prop.c = FALSE, prop.r = FALSE, dnn = c('actual default', 'predicted default'))\n\nconfusionMatrix(credit_pred, test$default.payment.next.month, positive = \"Y\")\n",
+    "created" : 1478721361780.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2679946318",
+    "id" : "23D3A722",
+    "lastKnownWriteTime" : 1479505505,
+    "last_content_update" : 1479545496689,
+    "path" : "~/Downloads/4_DefaultCreditCard.r",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1478341075104.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "905F3EC1",
+    "lastKnownWriteTime" : 8386019665480477036,
+    "last_content_update" : 1478341075104,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "ah8h08ia6i",
+        "caption" : "delta.scores",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=delta.scores&cache_key=ah8h08ia6i",
+        "displayedObservations" : 1500,
+        "environment" : "",
+        "object" : "delta.scores",
+        "totalObservations" : 1500,
+        "variables" : 4
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

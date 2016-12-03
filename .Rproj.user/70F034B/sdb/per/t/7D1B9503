@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# =========================================\n# Dataset attributes\n# =========================================  \n#  \n# age: continuous.  The age of the individual\n# workclass: The type of employer the individual has: Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked. \n# fnlwgt: The \\# of people the census takers believe that observation represents: continuous.\n# education: The highest level of education achieved for that individual: Bachelors, Some-college, 11th, HS-grad, Prof-school, Assoc-acdm, Assoc-voc, 9th, 7th-8th, 12th, Masters, 1st-4th, 10th, Doctorate, 5th-6th, Preschool. \n# education-num: Highest level of education in numerical form: continuous. \n# marital-status: Married-civ-spouse, Divorced, Never-married, Separated, Widowed, Married-spouse-absent, Married-AF-spouse. \n# occupation: Tech-support, Craft-repair, Other-service, Sales, Exec-managerial, Prof-specialty, Handlers-cleaners, Machine-op-inspct, Adm-clerical, Farming-fishing, Transport-moving, Priv-house-serv, Protective-serv, Armed-Forces. \n# relationship: Wife, Own-child, Husband, Not-in-family, Other-relative, Unmarried. \n# race: White, Asian-Pac-Islander, Amer-Indian-Eskimo, Other, Black. \n# sex: Female, Male. \n# capital-gain: Capital gains recorded: continuous. \n# capital-loss: Capital Losses recorded: continuous. \n# hours-per-week:  Hours worked per week: continuous. \n# native-country: Country of origin for person: United-States, Cambodia, England, Puerto-Rico, Canada, Germany, Outlying-US(Guam-USVI-etc), India, Japan, Greece, South, China, Cuba, Iran, Honduras, Philippines, Italy, Poland, Jamaica, Vietnam, Mexico, Portugal, Ireland, France, Dominican-Republic, Laos, Ecuador, Taiwan, Haiti, Columbia, Hungary, Guatemala, Nicaragua, Scotland, Thailand, Yugoslavia, El-Salvador, Trinadad&Tobago, Peru, Hong, Holand-Netherlands.\n# income: >50K, <=50K\n\n\n\nsetwd(\"/Users/Eoin/Documents/BSHCE/Year 4/DAD/DAD\") #<-- change this to where you have downloaded the csv\ndata <- read.csv(\"adult.data.csv\",stringsAsFactors = F)\n\nset.seed(13116053) # <-- put your student number here WITHOUT the x!! Leave off a starting zero if you have one\n#e.g.: set.seed(62345678)\nmy_dataset <- data[order(runif(5000)), ]\n\n#output this if you want to use something other than R\nwrite.csv(file=\"mydata.csv\", my_dataset)\n\n\n#------------------------------------------------\n#Start Foundations\n#libraries\nlibrary(ggplot2)\n\n\n#------------------------------------------------\n#Start of answers\n\n#Start B1\nView(my_dataset)\nmissingvalues = sum(is.na(my_dataset))\nsubsetwork = subset(my_dataset$workclass, workclass == \"?\")\nworkclasssubset = subset(x = my_dataset, subset = (my_dataset$workclass == \"?\") )\nworkclassNA = length(which(my_dataset$workclass == \"?\"))\n\nworkclassNA = data.frame(factor(my_dataset$workclass, levels=c(\"?\"), labels=c(NA)))\n\nidx <- my_dataset == \" ?\"\nlength(idx)\n\n\n#start B2\nsummary(my_dataset)\nagesort = sort(my_dataset$age, decreasing = TRUE)\ntop10 = head(agesort,10)\nView(top10)\n\nedusort = sort(my_dataset$education, decreasing = TRUE)\ntop10edu = head(edusort,10)\nView(top10edu)\n#startB3\nsort(table(my_dataset$native_country), decreasing = TRUE)\n\n#startB4\navgAge = mean(my_dataset$age)\navgCapGain = mean(my_dataset$capital_gain)\navgWorkHours = mean(my_dataset$hr_per_week)\n\n\n#startB5a\nggplot(data=my_dataset$education_num, aes(as.numberic(hr_per_week), as.numeric(income)) +\n  geom_violin(fill=\"lightblue\") +\n  geom_boxplot( alpha=.2)\n\n  \n\n#startI1\nsubsetFemales = subset(my_dataset, sex == \"Female\")\n\n#write out\nmyfile = file(\"mydata.csv\", open = \"w\")\nwrite.csv(my_dataset, file = myfile, row.names = FALSE)\nclose(myfile)\n\n\n",
+    "created" : 1479546775954.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "17756038",
+    "id" : "7D1B9503",
+    "lastKnownWriteTime" : 1479552230,
+    "last_content_update" : 1479552230446,
+    "path" : "~/Documents/BSHCE/Year 4/DAD/DAD/CA2.R",
+    "project_path" : "CA2.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 16,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

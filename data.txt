@@ -1,0 +1,4 @@
+"name" "age" "employed" "salary"
+"eoin" 31 "y" 31000
+"john" 14 "n" 12000
+"mark" 35 "y" 50000

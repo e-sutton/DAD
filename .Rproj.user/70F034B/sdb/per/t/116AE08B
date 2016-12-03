@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n# Fahrenheit to Celsius conversion\nfahrToCel <- function(fahr) {\n    cel <<- ((fahr - 32) / 9) * 5\n    return(cel)\n}\n\n# We can call the function as follows\nfahrToCel(32)\nfahrToCel(1)\n",
+    "created" : 1478343534286.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1097924053",
+    "id" : "116AE08B",
+    "lastKnownWriteTime" : 1476525244,
+    "last_content_update" : 1476525244,
+    "path" : "~/Documents/BSHCE/Year 4/DAD/1_FahrtoCelsius.r",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

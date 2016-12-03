@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1480106135019.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "FF0A66F9",
+    "lastKnownWriteTime" : 3617359695467141888,
+    "last_content_update" : 1480106135019,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "0l2sh9f4aa",
+        "caption" : "policeRoles",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=policeRoles&cache_key=0l2sh9f4aa",
+        "displayedObservations" : 2512,
+        "environment" : "",
+        "object" : "policeRoles",
+        "totalObservations" : 2512,
+        "variables" : 13
+    },
+    "relative_order" : 16,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

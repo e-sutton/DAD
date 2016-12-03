@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1478341993264.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "5C6B163F",
+    "lastKnownWriteTime" : 7144510439331296099,
+    "last_content_update" : 1478341993264,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "37xavc6yet",
+        "caption" : "acsi.df",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=acsi.df&cache_key=37xavc6yet",
+        "displayedObservations" : 14,
+        "environment" : "",
+        "object" : "acsi.df",
+        "totalObservations" : 14,
+        "variables" : 26
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

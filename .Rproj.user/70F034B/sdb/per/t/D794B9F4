@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1480103909755.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D794B9F4",
+    "lastKnownWriteTime" : 4371093728,
+    "last_content_update" : 1480103909755,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "d3rld7g6jw",
+        "caption" : "salData",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=salData&cache_key=d3rld7g6jw",
+        "displayedObservations" : 148654,
+        "environment" : "",
+        "object" : "salData",
+        "totalObservations" : 148654,
+        "variables" : 13
+    },
+    "relative_order" : 15,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
